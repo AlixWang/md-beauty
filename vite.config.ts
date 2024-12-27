@@ -12,7 +12,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.SERVER_ENV === `NETLIFY` ? `/` : `/md/`, // 基本路径, 建议以绝对路径跟随访问目录
+  base: process.env.SERVER_ENV === `NETLIFY` ? `/` : `/md-beauty/`, // 基本路径, 建议以绝对路径跟随访问目录
   define: {
     process,
   },
