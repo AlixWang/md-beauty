@@ -178,8 +178,13 @@ export const useStore = defineStore(`store`, () => {
   const editorRefresh = () => {
     codeThemeChange()
     renderer.reset({ citeStatus: isCiteStatus.value, legend: legend.value, isUseIndent: isUseIndent.value })
-
-    let outputTemp = marked.parse(editor.value!.getValue()) as string
+    let outputTemp: string = ``
+    if (theme.value === `html`) {
+      outputTemp = editor.value!.getValue()
+    }
+    else {
+      outputTemp = marked.parse(editor.value!.getValue()) as string
+    }
 
     // 去除第一行的 margin-top
     outputTemp = outputTemp.replace(/(style=".*?)"/, `$1;margin-top: 0"`)

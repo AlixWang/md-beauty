@@ -428,9 +428,19 @@ const graceTheme = toMerged(defaultTheme, {
   },
 })
 
+const htmlTheme = {
+  name: `html`,
+  base: {
+    '--md-primary-color': `#000000`,
+    'text-align': `left`,
+    'line-height': `1.75`,
+  },
+}
+
 export const themeMap = {
   default: defaultTheme,
   grace: graceTheme,
+  html: htmlTheme,
 }
 
 export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
@@ -443,5 +453,10 @@ export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
     label: `优雅`,
     value: `grace`,
     desc: ``,
+  },
+  {
+    label: `HTML渲染`,
+    value: `html`,
+    desc: `纯html渲染`,
   },
 ]

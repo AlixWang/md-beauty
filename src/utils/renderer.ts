@@ -28,7 +28,7 @@ function buildTheme({ theme: _theme, fonts, size, isUseIndent }: IOpts): ThemeSt
 
   const mergeStyles = (styles: Record<string, PropertiesHyphen>): Record<string, ExtendedProperties> =>
     Object.fromEntries(
-      Object.entries(styles).map(([ele, style]) => [ele, toMerged(base, style)]),
+      Object.entries(styles || {}).map(([ele, style]) => [ele, toMerged(base, style)]),
     )
   return {
     ...mergeStyles(theme.inline),

@@ -13,11 +13,21 @@ export function addPrefix(str: string) {
   return `${prefix}__${str}`
 }
 
+export function isEmptyTheme(theme: Theme) {
+  if (theme.block) {
+    return false
+  }
+  return true
+}
+
 export function customizeTheme(theme: Theme, options: {
   fontSize?: number
   color?: string
 }) {
   const newTheme = JSON.parse(JSON.stringify(theme))
+  if (isEmptyTheme(newTheme)) {
+    return newTheme
+  }
   const { fontSize, color } = options
   if (fontSize) {
     for (let i = 1; i <= 6; i++) {
@@ -36,7 +46,7 @@ export function customCssWithTemplate(jsonString: Partial<Record<Block | Inline,
 
   const mergeProperties = <T extends Block | Inline = Block>(target: Record<T, PropertiesHyphen>, source: Partial<Record<Block | Inline | string, PropertiesHyphen>>, keys: T[]) => {
     keys.forEach((key) => {
-      if (source[key]) {
+      if (source[key] && target) {
         target[key] = Object.assign(target[key] || {}, source[key])
       }
     })
