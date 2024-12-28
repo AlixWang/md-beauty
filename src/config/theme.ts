@@ -429,11 +429,11 @@ const graceTheme = toMerged(defaultTheme, {
 })
 
 const htmlTheme = {
-  name: `html`,
+  // name: `html`,
   base: {
-    '--md-primary-color': `#000000`,
-    'text-align': `left`,
-    'line-height': `1.75`,
+    // '--md-primary-color': `#000000`,
+    // 'text-align': `left`,
+    // 'line-height': `1.75`,
   },
 }
 

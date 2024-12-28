@@ -15,8 +15,8 @@ export type ExtendedProperties = PropertiesHyphen & CustomCSSProperties
 
 export interface Theme {
   base: ExtendedProperties
-  block: Record<Block, ExtendedProperties>
-  inline: Record<Inline, ExtendedProperties>
+  block?: Record<Block, ExtendedProperties>
+  inline?: Record<Inline, ExtendedProperties>
 }
 
 export interface IOpts {
